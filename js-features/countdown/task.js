@@ -1,8 +1,12 @@
-const clickerCounter = document.getElementById("clicker__counter");
-const clickerImg = document.getElementById("cookie");
+const timer = document.getElementById("timer");
+let currentDate = new Date();
+timer.textContent = currentDate.getSeconds();
 
-clickerImg.onclick = function() {
-    clickerCounter.textContent ++; 
-    setTimeout((element) => { element.width = 200; }, 200, clickerImg);
-    clickerImg.width = 250;
+function runTimeBack() {
+    if (timer.textContent > 0)
+        timer.textContent--
+    else
+        alert('Вы победили в конкурсе!')
 }
+
+timerId = setInterval(runTimeBack, 1000);
