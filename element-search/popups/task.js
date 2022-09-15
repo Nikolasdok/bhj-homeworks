@@ -1,14 +1,15 @@
-let modal = document.getElementById('modal_main');
-let success = document.getElementById('modal_success');
 
-activate(modal);
+const modalMain = document.getElementById('modal_main');
+const modalSuccess = document.getElementById('modal_success');
 
-// close popup
-let clicksClose = document.getElementsByClassName("modal__close modal__close_times");
+const modalClose = document.getElementsByClassName('modal__close');
+const showSuccess = document.getElementsByClassName('show-success');
 
-for( let i =0; i< clicksClose.length; i++) {
-    clicksClose[i].onclick = function() {
-        hidden(modal);
-        hidden(success);
-    } 
-}
+modalMain.className = 'modal modal_active';
+
+for (let i = 0; i < modalClose.length; i++)
+    modalClose[i].onclick = () => {
+        modalClose[i].closest('.modal').className = 'modal';
+        if (modalClose[i] === showSuccess[0])
+        modalSuccess.className = 'modal modal_active';
+    }
